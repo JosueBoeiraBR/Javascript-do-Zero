@@ -36,8 +36,10 @@ do {
         case 2:
             console.log("\nVAMOS A SACAR DINHEIRO");
             let saque = leia.questionFloat("DIGITE QUANTO DINHEIRO QUER SACAR: ");
-            if (saque <= 0 || saque > saldo) {
+            if (saque > saldo) {
                 console.log("\nSALDO INSUFICIENTE");
+            } else if(saque <= 0){
+                console.log("\nO SAQUE TEM QUE SER MAIOR A 0")
             } else {
                 saldo = saldo - saque;
                 console.log(`VOCÊ SACOU ${saque.toFixed(2)} REAIS`);
@@ -45,8 +47,12 @@ do {
             break;
         case 3:
             let deposito = leia.questionFloat("\nDIGITE QUANTO DINHEIRO QUER DEPOSITAR: "); // Estava en Int
-            saldo += deposito;
-            console.log(`VOCÊ DEPOSITOU ${deposito.toFixed(2)} reais`);
+            if(deposito<=0){
+                console.log("\nPRA DEPOSITAR O VALOR TEM QUE SER MAIOR A 0");
+            } else{
+                saldo += deposito;
+                console.log(`VOCÊ DEPOSITOU ${deposito.toFixed(2)} reais`);
+            }
             break;
         case 4:
             console.log("\nATÉ MAIS");
